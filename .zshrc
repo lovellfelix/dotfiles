@@ -11,6 +11,16 @@ ZSH_THEME="smt"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias -g subl=subl
+#APACHE ALIAS
+alias websvr="sudo apachectl start"
+alias websvrstop="sudo apachectl stop"
+alias websvrrestart="sudo apachectl restart"
+#MySQL ALIAS
+alias mysql="/usr/local/mysql/bin/mysql"
+alias mysqladmin="/usr/local/mysql/bin/mysqladmin"
+#start /stop
+alias mysqlsvr="sudo /usr/local/mysql/support-files/mysql.server start"
+alias mysqlsvrstop="sudo /usr/local/mysql/support-files/mysql.server stop"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -33,9 +43,12 @@ alias -g subl=subl
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git osx mysql-macports github sublime yeoman)
+plugins=(git osx github sublime yeoman screen git-extras heroku apache2-macports)
 
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
