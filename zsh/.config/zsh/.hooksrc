@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Hooks
+autoload -U add-zsh-hook
+
+# nvm
+function nvm_hook() {
+  if [ -s "/opt/homebrew/opt/nvm/nvm.sh" ]; then
+    . "/opt/homebrew/opt/nvm/nvm.sh"
+  fi
+  if [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ]; then
+    . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+  fi
+}
+
+add-zsh-hook chpwd nvm_hook

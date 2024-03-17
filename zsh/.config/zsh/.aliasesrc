@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Aliasses
+## Misc
+alias c="clear"
+
+## Configs
+# alias dotconfig="cd ~/Desktop/Projects/random/dotfiles && nvim ."
+
+## Notes
+# alias notes="cd ~/Desktop/Notes && nvim ."
+
+## Python
+alias python=python3
+alias pip=pip3
+alias pyactivate="source venv/bin/activate"
+
+#kubectl long commands
+alias k=kubectl
+alias kdrain="kubectl drain --delete-emptydir-data --ignore-daemonsets --force"
+
+#flux
+alias fluxr="flux reconcile source git flux-system && flux reconcile kustomization flux-system"
+alias fluxs="flux suspend hr"
+alias fluxf="flux resume hr"
+alias fluxg="flux get hr --all-namespaces"
+alias fluxl="flux logs --all-namespaces"
+alias fluxerr="flux logs --all-namespaces --level=error"
+alias fluxf="kubectl get hr --all-namespaces | grep False | awk '{print $2, $1}' | xargs bash -c 'flux suspend hr $0 -n $1'"
+
+
+alias nuget="mono /usr/local/bin/nuget.exe"
