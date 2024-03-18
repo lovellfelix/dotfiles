@@ -28,5 +28,10 @@ alias fluxl="flux logs --all-namespaces"
 alias fluxerr="flux logs --all-namespaces --level=error"
 alias fluxf="kubectl get hr --all-namespaces | grep False | awk '{print $2, $1}' | xargs bash -c 'flux suspend hr $0 -n $1'"
 
-
+# .NET Core
 alias nuget="mono /usr/local/bin/nuget.exe"
+
+# use nvim if available
+if [ -x "$(command -v nvim)" ]; then
+    alias vim='nvim'
+fi
