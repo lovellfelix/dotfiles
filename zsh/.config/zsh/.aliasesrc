@@ -13,6 +13,7 @@ alias c="clear"
 ## Python
 alias python=python3
 alias pip=pip3
+alias pyenv="python -m venv venv"
 alias pyactivate="source venv/bin/activate"
 
 #kubectl long commands
@@ -35,3 +36,8 @@ alias nuget="mono /usr/local/bin/nuget.exe"
 if [ -x "$(command -v nvim)" ]; then
     alias vim='nvim'
 fi
+
+# lazy docker 
+# https://github.com/jesseduffield/lazydocker
+alias lzd="lazydocker"
+# Completion styling
