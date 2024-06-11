@@ -1,0 +1,5 @@
+#mysql client path
+export PATH="${HOMEBREW_PREFIX}/opt/mysql-client/bin:$PATH"
+
+# zinit snippets
+zinit snippet OMZP::brew

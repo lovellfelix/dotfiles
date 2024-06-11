@@ -3,6 +3,7 @@
 # Aliasses
 ## Misc
 alias c="clear"
+alias ls='ls --color'
 
 ## Configs
 # alias dotconfig="cd ~/Desktop/Projects/random/dotfiles && nvim ."

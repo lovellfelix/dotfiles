@@ -1,74 +1,73 @@
-# oh-my-zsh installation path.
-export ZSH="$HOME/.oh-my-zsh"
+# Brew exists on disk, enable it.
+if [[ -f "/opt/homebrew/bin/brew" ]] then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
-# The ZSH theme to use
-ZSH_THEME="smt"
+# Set Zinit home directory to store the zinit and plugins
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+# Download Zinit, if it doesn't exist
+if [ ! -d "$ZINIT_HOME" ]; then
+   mkdir -p "$(dirname $ZINIT_HOME)"
+   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
 
-# Uncomment the following line to change how often to auto-update (in days).
-zstyle ':omz:update' frequency 13
 
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# Source Zinit 
+source "${ZINIT_HOME}/zinit.zsh"
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+# Source the .profile file
+# If on macOS, source the .profile-macos file
+if [ Darwin = `uname` ]; then
+  source $ZDOTDIR/.profile-macos
+fi
+
+# If on Linux, source the .profile-linux file
+if [ Linux = `uname` ]; then
+  source $HOME/.profile-linux
+fi
+
+# zinit plugins
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light Aloxaf/fzf-tab
+
+# zinit snippets
+zinit snippet OMZP::ansible
+zinit snippet OMZP::kubectl
+zinit snippet OMZP::git
+zinit snippet OMZP::sudo
+zinit snippet OMZP::command-not-found
+
 plugins=(git gitignore git-extras macos kubectl brew ansible zsh-autosuggestions nvm python)
 
-source $ZSH/oh-my-zsh.sh
+# Load completions
+autoload -Uz compinit && compinit
+
+zinit cdreplay -q
+
 source $ZDOTDIR/.aliasesrc
-source $ZDOTDIR/.exportsrc
-source $ZDOTDIR/.hooksrc
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# keybindings
+bindkey -e
+bindkey "^P" up-line-or-beginning-search
+bindkey "^N" down-line-or-beginning-search
+bindkey '^[w' kill-region
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Custom format for git_prompt_long_sha() and git_prompt_short_sha()
-ZSH_THEME_GIT_PROMPT_SHA_BEFORE="%{$fg_bold[yellow]%}"
-ZSH_THEME_GIT_PROMPT_SHA_AFTER="%{$reset_color%}"
-
-PROMPT='
-%{$fg[green]%}[%~% ] %{$reset_color%}$(git_prompt_short_sha)$(git_prompt_info)
-%{$fg[red]%}%!%{$reset_color%} $(prompt_char) : '
-
-RPROMPT=''
-
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-# Add alias to .aliasesrc
-# ~/.config/zsh/.aliasesrc
-
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Auto completion
+source <(fzf --zsh)
 
-# minio
-complete -o nospace -C /usr/local/bin/mc mc
+# Oh My Posh prompt
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+  eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/ohmyposh/zen.toml)"
+fi
 
-
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        source "$BASE16_SHELL/profile_helper.sh"
-        
+# zle_highlight=('paste:none')
