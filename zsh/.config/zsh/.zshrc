@@ -40,8 +40,6 @@ zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
 
-plugins=(git gitignore git-extras macos kubectl brew ansible zsh-autosuggestions nvm python)
-
 # Load completions
 autoload -Uz compinit && compinit
 
@@ -67,7 +65,12 @@ source <(fzf --zsh)
 
 # Oh My Posh prompt
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-  eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/ohmyposh/zen.toml)"
+  # Check if the ohmyposh config directory exists else create a symlink to the dotfiles directory
+  # TODO: load with default config if no config is found
+  if [ ! -d "$XDG_CONFIG_HOME/ohmyposh" ] && [ -d "$DOTFILESDIR/ohmyposh/.config/ohmyposh" ]; then
+    ln -s "$DOTFILESDIR/ohmyposh/.config/ohmyposh" "$XDG_CONFIG_HOME/ohmyposh"
+  fi
+  eval "$(oh-my-posh init zsh --config "$XDG_CONFIG_HOME/ohmyposh/zen.toml")"
 fi
 
 # zle_highlight=('paste:none')
