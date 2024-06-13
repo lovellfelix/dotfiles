@@ -73,4 +73,11 @@ if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config "$XDG_CONFIG_HOME/ohmyposh/zen.toml")"
 fi
 
-# zle_highlight=('paste:none')
+# zle_highlight=('paste:none')d
+# Tmux plugin manager
+TPM_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/tmux/plugins/tpm"
+
+if [ ! -d "$TPM_HOME" ]; then
+  mkdir -p "$(dirname $TPM_HOME)"
+  git clone https://github.com/tmux-plugins/tpm.git "$TPM_HOME"
+fi
