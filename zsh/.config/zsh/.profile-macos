@@ -1,4 +1,14 @@
-#mysql client path
+# Brew exists on disk, enable it.
+if [[ -f "/opt/homebrew/bin/brew" ]] then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+# check if zoxide is installed and load it
+if [[ -f "/opt/homebrew/bin/zoxide" ]] then
+  eval "$(zoxide init zsh)"
+fi
+
+# mysql client path
 export PATH="${HOMEBREW_PREFIX}/opt/mysql-client/bin:$PATH"
 
 # zinit snippets
