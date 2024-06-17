@@ -41,7 +41,7 @@ autoload -Uz compinit && compinit
 
 zinit cdreplay -q
 
-source $ZDOTDIR/.aliasesrc
+source $ZDOTDIR/.aliases
 
 # keybindings
 bindkey -e
