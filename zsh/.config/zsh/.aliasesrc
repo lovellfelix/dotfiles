@@ -18,8 +18,7 @@ alias pip=pip3
 alias pyenv="python -m venv venv"
 alias pyactivate="source venv/bin/activate"
 
-#kubectl long commands
-alias k=kubectl
+# #kubectl long commands
 alias kdrain="kubectl drain --delete-emptydir-data --ignore-daemonsets --force"
 
 #flux

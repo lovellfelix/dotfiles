@@ -7,7 +7,6 @@ if [ ! -d "$ZINIT_HOME" ]; then
    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
-
 # Source Zinit 
 source "${ZINIT_HOME}/zinit.zsh"
 
@@ -30,9 +29,11 @@ zinit light Aloxaf/fzf-tab
 
 # zinit snippets
 zinit snippet OMZP::ansible
+zinit snippet OMZP::aliases
 zinit snippet OMZP::kubectl
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
+zinit snippet OMZP::tmux
 zinit snippet OMZP::command-not-found
 
 # Load completions
@@ -44,6 +45,8 @@ source $ZDOTDIR/.aliasesrc
 
 # keybindings
 bindkey -e
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
 bindkey "^P" up-line-or-beginning-search
 bindkey "^N" down-line-or-beginning-search
 bindkey '^[w' kill-region
@@ -57,6 +60,8 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Auto completion
 source <(fzf --zsh)
+source <(kubectl completion zsh)
+
 
 # Oh My Posh prompt
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
@@ -68,7 +73,6 @@ if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config "$XDG_CONFIG_HOME/ohmyposh/zen.toml")"
 fi
 
-# zle_highlight=('paste:none')d
 # Tmux plugin manager
 TPM_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/tmux/plugins/tpm"
 
