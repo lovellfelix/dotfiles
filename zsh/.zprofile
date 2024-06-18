@@ -7,13 +7,6 @@ export XDG_DATA_HOME=$HOME/.local/share
 export ZDOTDIR=$HOME/.config/zsh
 export ZSH_COMPDUMP=$XDG_CACHE_HOME/zsh/zcompdump
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='lvim'
-fi
-
 # History in cache directory
 HISTSIZE=50000
 HISTFILE=$ZDOTDIR/.zsh_history

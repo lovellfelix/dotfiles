@@ -4,7 +4,6 @@
 ## Misc
 alias c="clear"
 alias ls='ls --color'
-alias cd='z'
 
 ## Configs
 # alias dotconfig="cd ~/Desktop/Projects/random/dotfiles && nvim ."
@@ -34,8 +33,8 @@ alias fluxf="kubectl get hr --all-namespaces | grep False | awk '{print $2, $1}'
 alias nuget="mono /usr/local/bin/nuget.exe"
 
 # use nvim if available
-if [ -x "$(command -v nvim)" ]; then
-    alias vim='nvim'
+if [ -x "$(command -v lvim)" ]; then
+    alias vim='lvim'
 fi
 
 # lazy docker 

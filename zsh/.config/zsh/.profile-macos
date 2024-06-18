@@ -13,3 +13,13 @@ export PATH="${HOMEBREW_PREFIX}/opt/mysql-client/bin:$PATH"
 
 # zinit snippets
 zinit snippet OMZP::brew
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='lvim'
+fi
+
+# MacOs specific aliases
+alias cd='z'
