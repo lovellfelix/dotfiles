@@ -2,4 +2,7 @@
 ohmyzsh
 .zsh_history
 .zcompdump*
+.zcompcache
+.zsh_sessions
+
 ._secrets
