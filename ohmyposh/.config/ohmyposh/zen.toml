@@ -18,7 +18,14 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
 
     [blocks.segments.properties]
       style = 'full'
-    
+  
+  [[blocks.segments]]
+    type = 'python'
+    style = 'plain'
+    foreground = 'cyan'
+    # background = 'transparent'
+    template = "({{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }})"
+
   [[blocks.segments]]
     type = 'git'
     style = 'plain'
