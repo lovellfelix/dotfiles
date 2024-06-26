@@ -95,11 +95,8 @@ dynamic_title = true
 
 [window.dimensions]
 columns = 500
-lines = 50
+lines = 80
 
-[window.position]
-x = 0
-y = 0
 
 [scrolling]
 history = 10000
