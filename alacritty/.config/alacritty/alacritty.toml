@@ -86,6 +86,7 @@ mouse = "Middle"
 
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+save_to_clipboard = true
 
 [window]
 decorations = "full"
@@ -93,37 +94,37 @@ dynamic_title = true
 # startup_mode = "Maximized"
 
 [window.dimensions]
-columns = 160
-lines = 80
+columns = 500
+lines = 50
 
-[window.padding]
-x = 2
-# y = 4
+[window.position]
+x = 0
+y = 0
 
 [scrolling]
 history = 10000
 multiplier = 3
 
-# [shell]
-# program = "/bin/zsh"
-# args = ["-l", "-c", "/opt/homebrew/bin/tmux new-session -A -s alacritty-main"]
-
 [shell]
-program = "/opt/homebrew/bin/tmux"
-args = ["new-session", "-A", "-D", "-s", "alacritty-main"]
+program = "/bin/zsh"
+args = ["-l", "-c", "/opt/homebrew/bin/tmux new-session -A -s alacritty-main"]
+
+# [shell]
+# program = "/opt/homebrew/bin/tmux"
+# args = ["new-session", "-A", "-D", "-s", "alacritty-main"]
 
 # [shell]
 # program = "/bin/zsh"
 # args = ["-l", "-c", "/opt/homebrew/bin/tmux attach || /opt/homebrew/bin/tmux"]
-
-[keyboard]
-bindings = [
+# 
+# [keyboard]
+# bindings = [
     # # ⌘ + enter puts window in macOS full screen
-    { key = "Enter", mods = "Command", action = "ToggleFullscreen"},
+    # { key = "Enter", mods = "Command", action = "ToggleFullscreen"},
     # # opt + right and left jump between words
     # { key = "Right", mods = "Alt", chars = "\u001BF" },
     # { key = "Left",  mods = "Alt", chars = "\u001BB" },
-    # # ⌘ + d adds a pane to the right (splits window vertically)
+    # ⌘ + d adds a pane to the right (splits window vertically)
     # { key = "D",  mods = "Command", chars = "\u0002%" },
     # # ⌘ + ⇧ + d adds a pane below (splits window horizontally)
     # { key = "D",  mods = "Command|Shift", chars = "\u0002\"" },
@@ -140,4 +141,4 @@ bindings = [
     # { key = "Right", mods = "Command", chars = "\u0002\u001b[C" },
     # # ⌘ + ⇧ + enter maximizes the pane within the alacritty window
     # { key = "Enter", mods = "Command|Shift", chars = "\u0002z" },
-]
+# ]
