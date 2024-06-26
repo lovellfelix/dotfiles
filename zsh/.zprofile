@@ -31,7 +31,6 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 #k9s
-export TERM=xterm-256color
 export KUBE_EDITOR=$EDITOR
 export K9S_CONFIG_DIR="$HOME/.config/k9s"
 
