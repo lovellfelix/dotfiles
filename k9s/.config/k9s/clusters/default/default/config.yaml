@@ -1,0 +1,18 @@
+k9s:
+  cluster: default
+  namespace:
+    active: default
+    lockFavorites: true
+    favorites:
+    - default
+    - database
+    - grenadianbuzz
+    - kube-system
+    - media
+    - flux-system
+  view:
+    active: ns
+  featureGates:
+    nodeShell: true
+  portForwardAddress: localhost
+
