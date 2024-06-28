@@ -7,3 +7,6 @@ aliases:
   ro: roles
   rb: rolebindings
   np: networkpolicies
+  hass: pod app.kubernetes.io/name=home-assistant -n default
+  metallb: pod app.kubernetes.io/name=metallb -n kube-system
+  nginx: pod app.kubernetes.io/instance=nginx-ingress -n kube-system
