@@ -1,5 +1,5 @@
 import = [
-  "~/.config/alacritty/catppuccin-mocha.toml"
+  "~/.config/alacritty/tokyo-night.toml"
 ]
 
 live_config_reload = true
@@ -87,8 +87,8 @@ bindings = [
     ############################################
     # ⌘ + t opens a new tab
     { key = "T",  mods = "Command", command = { program = "/opt/homebrew/bin/tmux", args = ["new-window"] } },
-    # ⌘ + w closes the current tab
-    { key = "W",  mods = "Command", command = { program = "/opt/homebrew/bin/tmux", args = ["kill-window"] } },
+    # ⌘ + ⇧ + w closes the current tab
+    { key = "W",  mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["kill-window"] } },
     # ⌘ + d adds a pane to the right (splits window vertically)
     { key = "D",  mods = "Command", command = { program = "/opt/homebrew/bin/tmux", args = ["split-window", "-h"] } },
     # ⌘ + ⇧ + d adds a pane below (splits window horizontally)
@@ -109,12 +109,36 @@ bindings = [
     # move down a pane
     { key = "Down", mods = "Command|Alt", command = { program = "/opt/homebrew/bin/tmux", args = ["select-pane", "-D"] } },
 
+    # ⌘ + Shift + arrows for navigating between panes
+    ############################################
+    # move to the left pane
+    { key = "Left", mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["select-pane", "-L"] } },
+    # ⌘ + h is for moving to the left pane
+    # Doesn't work with alacritty. Replaced with ⌘ + Shift + H
+    { key = "H", mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["select-pane", "-L"] } },
+
+    # move to the right pane
+    { key = "Right", mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["select-pane", "-R"] } },
+    # ⌘ + l is for moving to the right pane
+    { key = "L", mods = "Command", command = { program = "/opt/homebrew/bin/tmux", args = ["select-pane", "-R"] } },
+
+    # move to the up pane
+    { key = "Up", mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["select-pane", "-U"] } },
+    # ⌘ + k is for moving to the up pane
+    { key = "K", mods = "Command", command = { program = "/opt/homebrew/bin/tmux", args = ["select-pane", "-U"] } },
+    
+    # move to the down pane
+    { key = "Down", mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["select-pane", "-D"] } },
+    # ⌘ + j is for moving to the down pane
+    { key = "J", mods = "Command", command = { program = "/opt/homebrew/bin/tmux", args = ["select-pane", "-D"] } },
+    
     # ⌘ + Shift + arrows are for windows directional navigation
     ############################################
-    # move a window to the left
-    { key = "Left", mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["swap-window", "-t", "-1"] } },
-    # move a window to the right
-    { key = "Right", mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["swap-window", "-t", "+1"] } },
+    # # move a window to the left
+    # { key = "Left", mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["swap-window", "-t", "-1"] } },
+    # # move a window to the right
+    # { key = "Right", mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["swap-window", "-t", "+1"] } },
+    
     # ⌘ + {number} switches to the window number
     { key = "0", mods = "Command", command = { program = "/opt/homebrew/bin/tmux", args = ["select-window", "-t", "0"] } },
     { key = "1", mods = "Command", command = { program = "/opt/homebrew/bin/tmux", args = ["select-window", "-t", "1"] } },

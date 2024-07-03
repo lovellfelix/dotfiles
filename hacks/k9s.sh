@@ -11,3 +11,4 @@ ln -sfv "${HOME}"/.dotfiles/k9s/aliases.yaml "${XDG_CONFIG_HOME}"/k9s/aliases.ya
 
 # create skin symlink
 ln -sfv "${HOME}"/.dotfiles/k9s/skins/catppuccin-mocha.yaml "${XDG_CONFIG_HOME}"/k9s/skins/catppuccin-mocha.yaml
+ln -sfv "${HOME}"/.dotfiles/k9s/skins/tokyo-night.yaml "${XDG_CONFIG_HOME}"/k9s/skins/tokyo-night.yaml
