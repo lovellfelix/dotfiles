@@ -85,14 +85,14 @@ args = ["-l", "-c", "/opt/homebrew/bin/tmux new-session -A -s alacritty-main"]
 bindings = [
     # Manage tabs and panes
     ############################################
-    # ⌘ + t opens a new tab
-    { key = "T",  mods = "Command", command = { program = "/opt/homebrew/bin/tmux", args = ["new-window"] } },
+    # ⌘ + t opens a new tab and copy the current directory to the new tab
+    { key = "T",  mods = "Command", command = { program = "/opt/homebrew/bin/tmux", args = ["new-window", "-c", "#{pane_current_path}"] } },
     # ⌘ + ⇧ + w closes the current tab
     { key = "W",  mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["kill-window"] } },
     # ⌘ + d adds a pane to the right (splits window vertically)
-    { key = "D",  mods = "Command", command = { program = "/opt/homebrew/bin/tmux", args = ["split-window", "-h"] } },
+    { key = "D",  mods = "Command", command = { program = "/opt/homebrew/bin/tmux", args = ["split-window", "-h", "-c", "#{pane_current_path}"] } },
     # ⌘ + ⇧ + d adds a pane below (splits window horizontally)
-    { key = "D",  mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["split-window", "-v"] } },
+    { key = "D",  mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["split-window", "-v", "-c", "#{pane_current_path}"] } },
     # C + tab switches to the next tab
     { key = "Tab",  mods = "Control", command = { program = "/opt/homebrew/bin/tmux", args = ["next-window"] } },
     # C + ⇧ + tab switches to the previous tab
@@ -161,7 +161,12 @@ bindings = [
     { key = "Up", mods = "Command|Control", command = { program = "/opt/homebrew/bin/tmux", args = ["resize-pane", "-U"] } },
     # resize down a pane
     { key = "Down", mods = "Command|Control", command = { program = "/opt/homebrew/bin/tmux", args = ["resize-pane", "-D"] } },
-  
     # ⌘ + q prompts you to close the tab, "y" to confirm
     { key = "Q",  mods = "Command", command = { program = "/opt/homebrew/bin/tmux", args = ["kill-window"] } },
+    { key = "Q",  mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["kill-session"] } },
+    # ⌘ + U updates the tmux plugins
+    { key = "U",  mods = "Command", command = { program = "/opt/homebrew/bin/tmux", args = ["run-shell", "~/.local/share/tmux/plugins/tpm/bin/update_plugins all"] } },
+    # ⌘ + R reloads the tmux configuration
+    { key = "R",  mods = "Command", command = { program = "/opt/homebrew/bin/tmux", args = ["source-file", "~/.config/tmux/tmux.conf"] } },
+
 ]
