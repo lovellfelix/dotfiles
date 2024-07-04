@@ -26,6 +26,7 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light Aloxaf/fzf-tab
+zinit light issenn/fast-syntax-highlighting
 
 # zinit snippets
 zinit snippet OMZP::ansible
@@ -43,7 +44,7 @@ zinit cdreplay -q
 source $ZDOTDIR/.aliases
 
 # keybindings
-bindkey -e
+# bindkey -e
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 bindkey "^P" up-line-or-beginning-search

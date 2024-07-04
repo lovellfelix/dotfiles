@@ -21,5 +21,8 @@ else
   export EDITOR='nvim'
 fi
 
+# Tmux Iterm2 shell integration
+export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
+
 # MacOs specific aliases
 alias cd='z'
