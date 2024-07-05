@@ -4,13 +4,14 @@ k9s:
     active: default
     lockFavorites: true
     favorites:
-      - default
-      - database
-      - grenadianbuzz
-      - kube-system
-      - media
-      - flux-system
-      - download
+    - default
+    - database
+    - grenadianbuzz
+    - kube-system
+    - media
+    - flux-system
+    - download
+    - monitoring
   view:
     active: deploy
   featureGates:
