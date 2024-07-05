@@ -6,12 +6,13 @@ k9s:
     favorites:
     - default
     - database
+    - downloads
     - grenadianbuzz
+    - flux-system
     - kube-system
     - media
-    - flux-system
-    - download
     - monitoring
+    - system-upgrade
   view:
     active: deploy
   featureGates:
