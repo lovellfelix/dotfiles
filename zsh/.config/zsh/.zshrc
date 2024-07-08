@@ -79,4 +79,11 @@ TPM_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/tmux/plugins/tpm"
 if [ ! -d "$TPM_HOME" ]; then
   command mkdir -p "$(dirname $TPM_HOME)"
   command git clone https://github.com/tmux-plugins/tpm.git "$TPM_HOME"
+  # Install tpm plugins
+  $TPM_HOME/bin/install_plugins
+  # Source the tmux config file if it exists and tmux is running
+  if [ -n "$TMUX" ] && [ -f "$XDG_CONFIG_HOME/tmux/tmux.conf" ]; then
+    tmux source-file $XDG_CONFIG_HOME/tmux/tmux.conf
+  fi
 fi
+
