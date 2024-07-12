@@ -1,19 +1,19 @@
-foreground: &foreground "#c0caf5"
+foreground: &foreground "#c8d3f5"
 background: &background default
 current_line: &current_line '#313244'
-selection: &selection '#45475a'
-comment: &comment '#444b6a'
+selection: &selection '#444a73'
+comment: &comment '#444a73'
 cyan: &cyan '#449dab'
 green: &green '#9ece6a'
-yellow: &yellow '#f9e2af'
-orange: &orange '#fab387'
-magenta: &magenta '#ad8ee6'
+yellow: &yellow '#ffc777'
+orange: &orange '#ff966c'
+magenta: &magenta '#c099ff'
 blue: &blue "#7aa2f7"
-red: &red '#f7768e'
+red: &red '#ff757f'
 purple: &purple "#9d7cd8"
 pink: &pink "#bb9af7"
-white: &white '#787c99'
-black: &black '#32344a'
+white: &white '#b8c0e0'
+black: &black '#1b1d2b'
 k9s:
   # General K9s styles
   body:
