@@ -18,7 +18,7 @@ fi
 
 # If on Linux, source the .profile-linux file
 if [ Linux = `uname` ]; then
-  source $HOME/.profile-linux
+  source $ZDOTDIR/.profile-linux
 fi
 
 # zinit plugins
