@@ -1,4 +1,4 @@
-# Set up fzf and key bindings
-if [[ -f ~/.fzf.zsh ]]; then
-  source ~/.fzf.zsh
+# Set up fzf. If installed, source the shell completion and key bindings. 
+if [[ -f "$HOME/.fzf.zsh" ]] then
+  source "$HOME/.fzf.zsh"
 fi
