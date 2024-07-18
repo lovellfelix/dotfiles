@@ -1,0 +1,4 @@
+# Set up fzf and key bindings
+if [[ -f ~/.fzf.zsh ]]; then
+  source ~/.fzf.zsh
+fi
