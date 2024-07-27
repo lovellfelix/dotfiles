@@ -11,6 +11,8 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Source the .profile file
+source $ZDOTDIR/.profile
+
 # If on macOS, source the .profile-macos file
 if [ Darwin = `uname` ]; then
   source $ZDOTDIR/.profile-macos
