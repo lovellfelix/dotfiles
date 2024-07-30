@@ -5,7 +5,7 @@ fi
 
 # check if zoxide is installed and load it
 if [[ -f "/opt/homebrew/bin/zoxide" ]] then
-  eval "$(zoxide init zsh)"
+  eval "$(zoxide init --cmd cd zsh)"
 fi
 
 # mysql client path
@@ -25,4 +25,4 @@ fi
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 
 # MacOs specific aliases
-alias cd='z'
+
