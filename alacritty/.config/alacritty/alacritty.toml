@@ -65,6 +65,10 @@ dynamic_title = true
 columns = 500
 lines = 80
 
+[window.padding]
+x = 4
+y = 4
+
 [scrolling]
 history = 10000
 multiplier = 3
