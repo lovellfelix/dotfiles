@@ -1,15 +1,14 @@
 k9s:
-  liveViewAutoRefresh: true
-  screenDumpDir: screen-dumps
+  liveViewAutoRefresh: false
+  screenDumpDir: /Users/lovellfelix/.config/k9s/screen-dumps
   refreshRate: 2
   maxConnRetry: 5
   readOnly: false
   noExitOnCtrlC: false
   ui:
-    skin: catppuccin-custom
     enableMouse: false
     headless: false
-    logoless: true
+    logoless: false
     crumbsless: false
     reactive: false
     noIcons: false

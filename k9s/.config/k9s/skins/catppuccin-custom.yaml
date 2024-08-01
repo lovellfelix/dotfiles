@@ -1,0 +1,130 @@
+foreground: &foreground "#c8d3f5"
+background: &background default
+current_line: &current_line '#313244'
+selection: &selection '#444a73'
+comment: &comment '#444a73'
+cyan: &cyan '#8bd5ca'
+green: &green '#a6da95'
+yellow: &yellow '#eed49f'
+orange: &orange '#f5a97f'
+magenta: &magenta '#c099ff'
+blue: &blue '#8aadf4'
+red: &red '#ee99a0'
+purple: &purple '#c6a0f6'
+pink: &pink '#f5bde6'
+white: &white '#b8c0e0'
+black: &black '#24273a'
+red_error: &red_error '#ed8796'
+orange_label: &orange_label '#f5e0dc'
+cryan_highlight: &cyan_highlight '#91d7e3'
+k9s:
+  # General K9s styles
+  body:
+    fgColor: *foreground
+    bgColor: *background
+    logoColor: *purple
+  prompt:
+    fgColor: *foreground
+    bgColor: *background
+    suggestColor: *blue
+  help:
+    fgColor: *foreground
+    bgColor: *background
+    sectionColor: *green
+    keyColor: *blue
+    numKeyColor: *red
+  # Frame styles
+  frame:
+    title:
+      fgColor: *foreground
+      bgColor: *background
+      highlightColor: *purple
+      counterColor: *purple
+      filterColor: *green
+    border:
+      fgColor: *selection
+      focusColor: *current_line
+    # MenuView attributes and styles
+    menu:
+      fgColor: *foreground
+      keyColor: *purple
+      # Used for favorite namespaces
+      numKeyColor: *purple
+    # CrumbView attributes for history navigation.
+    crumbs:
+      fgColor: *foreground
+      bgColor: *current_line
+      activeColor: *current_line
+    # Resource status and update styles
+    status:
+      newColor: *blue
+      modifyColor: *purple
+      addColor: *green
+      errorColor: *red_error
+      highlightcolor: *orange
+      killColor: *comment
+      completedColor: *comment
+  # ClusterInfoView styles
+  info:
+    fgColor: *blue
+    sectionColor: *foreground
+  views:
+    # TableView attributes.
+    table:
+      fgColor: *foreground
+      bgColor: *background
+      cursorFgColor: *current_line
+      cursorBgColor: *selection
+      markColor: *orange_label
+      # Header row styles.
+      header:
+        fgColor: *foreground
+        bgColor: *background
+        sorterColor: *blue
+    # Xray view attributes.
+    xray:
+      fgColor: *foreground
+      bgColor: *background
+      cursorColor: *current_line
+      graphicColor: *purple
+      showIcons: false
+    charts:
+      bgColor: *background
+      chartBgColor: *background
+      dialBgColor: *background   
+      defaultDialColors:
+        - *green
+        - *red
+      defaultChartColors:
+        - *green
+        - *red
+      resourceColors:
+        cpu:
+          - *purple
+          - *blue
+        mem:
+          - *orange
+          - *orange
+    # YAML info styles.
+    yaml:
+      keyColor: *blue
+      colonColor: *cyan
+      valueColor: *foreground
+    # Logs styles.
+    logs:
+      fgColor: *foreground
+      bgColor: *background
+      indicator:
+        fgColor: *purple
+        bgColor: *background
+        toggleOnColor: *green
+        toggleOffColor: *cyan
+  dialog:
+    fgColor: *yellow
+    bgColor: *background
+    buttonFgColor: *black
+    buttonBgColor: *foreground
+    buttonFocusFgColor: *black
+    buttonFocusBgColor: *pink
+    labelFgColor: *orange_label
+    fieldFgColor: *foreground
