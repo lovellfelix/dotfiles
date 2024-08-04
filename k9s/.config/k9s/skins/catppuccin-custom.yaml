@@ -1,8 +1,5 @@
-foreground: &foreground "#c8d3f5"
+foreground: &foreground "#cad3f5"
 background: &background default
-current_line: &current_line '#313244'
-selection: &selection '#444a73'
-comment: &comment '#444a73'
 cyan: &cyan '#8bd5ca'
 green: &green '#a6da95'
 yellow: &yellow '#eed49f'
@@ -14,9 +11,12 @@ purple: &purple '#c6a0f6'
 pink: &pink '#f5bde6'
 white: &white '#b8c0e0'
 black: &black '#24273a'
+grey: &grey '#a5adcb'
 red_error: &red_error '#ed8796'
 orange_label: &orange_label '#f5e0dc'
 cryan_highlight: &cyan_highlight '#91d7e3'
+border_color: &border_color '#b7bdf8'
+
 k9s:
   # General K9s styles
   body:
@@ -42,8 +42,8 @@ k9s:
       counterColor: *purple
       filterColor: *green
     border:
-      fgColor: *selection
-      focusColor: *current_line
+      fgColor: *foreground
+      focusColor: *border_color
     # MenuView attributes and styles
     menu:
       fgColor: *foreground
@@ -52,9 +52,9 @@ k9s:
       numKeyColor: *purple
     # CrumbView attributes for history navigation.
     crumbs:
-      fgColor: *foreground
-      bgColor: *current_line
-      activeColor: *current_line
+      fgColor: *black
+      bgColor: *foreground
+      activeColor: *purple
     # Resource status and update styles
     status:
       newColor: *blue
@@ -62,8 +62,8 @@ k9s:
       addColor: *green
       errorColor: *red_error
       highlightcolor: *orange
-      killColor: *comment
-      completedColor: *comment
+      killColor: *grey
+      completedColor: *grey
   # ClusterInfoView styles
   info:
     fgColor: *blue
@@ -73,8 +73,8 @@ k9s:
     table:
       fgColor: *foreground
       bgColor: *background
-      cursorFgColor: *current_line
-      cursorBgColor: *selection
+      cursorFgColor: *black
+      cursorBgColor: *black
       markColor: *orange_label
       # Header row styles.
       header:
@@ -85,7 +85,7 @@ k9s:
     xray:
       fgColor: *foreground
       bgColor: *background
-      cursorColor: *current_line
+      cursorColor: *black
       graphicColor: *purple
       showIcons: false
     charts:
