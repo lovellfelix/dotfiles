@@ -4,18 +4,17 @@ cyan: &cyan '#8bd5ca'
 green: &green '#a6da95'
 yellow: &yellow '#eed49f'
 orange: &orange '#f5a97f'
-magenta: &magenta '#c099ff'
 blue: &blue '#8aadf4'
 red: &red '#ee99a0'
 purple: &purple '#c6a0f6'
 pink: &pink '#f5bde6'
-white: &white '#b8c0e0'
 black: &black '#24273a'
 grey: &grey '#a5adcb'
 red_error: &red_error '#ed8796'
 orange_label: &orange_label '#f5e0dc'
 cryan_highlight: &cyan_highlight '#91d7e3'
 border_color: &border_color '#b7bdf8'
+current_line: &current_line '#45475a'
 
 k9s:
   # General K9s styles
@@ -53,8 +52,8 @@ k9s:
     # CrumbView attributes for history navigation.
     crumbs:
       fgColor: *black
-      bgColor: *foreground
-      activeColor: *purple
+      bgColor: *border_color
+      activeColor: *blue
     # Resource status and update styles
     status:
       newColor: *blue
@@ -85,9 +84,9 @@ k9s:
     xray:
       fgColor: *foreground
       bgColor: *background
-      cursorColor: *black
-      graphicColor: *purple
-      showIcons: false
+      cursorColor: *current_line
+      cursorTextColor: *black
+      graphicColor: *pink
     charts:
       bgColor: *background
       chartBgColor: *background

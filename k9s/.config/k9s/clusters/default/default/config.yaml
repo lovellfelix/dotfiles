@@ -4,17 +4,17 @@ k9s:
     active: default
     lockFavorites: true
     favorites:
-      - default
-      - database
-      - downloads
-      - grenadianbuzz
-      - flux-system
-      - kube-system
-      - media
-      - monitoring
-      - system-upgrade
+    - default
+    - database
+    - downloads
+    - grenadianbuzz
+    - flux-system
+    - kube-system
+    - media
+    - monitoring
+    - system-upgrade
   view:
-    active: deploy
+    active: xray deploy
   featureGates:
     nodeShell: true
   portForwardAddress: localhost
