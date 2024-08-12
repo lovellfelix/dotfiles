@@ -46,7 +46,7 @@ zinit cdreplay -q
 source $ZDOTDIR/.aliases
 
 # keybindings
-# bindkey -e
+bindkey -e
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 bindkey "^P" up-line-or-beginning-search
