@@ -47,10 +47,10 @@ source $ZDOTDIR/.aliases
 
 # keybindings
 bindkey -e
+bindkey '^p' history-search-backward
+bindkey '^n' history-search-forward
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
-bindkey "^P" up-line-or-beginning-search
-bindkey "^N" down-line-or-beginning-search
 bindkey '^[w' kill-region
 
 # Completion styling
