@@ -64,6 +64,8 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 source <(fzf --zsh)
 source <(kubectl completion zsh)
 
+# disable paste highlighting
+zle_highlight=('paste:none')
 
 # Oh My Posh prompt
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
