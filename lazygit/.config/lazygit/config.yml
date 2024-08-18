@@ -1,4 +1,16 @@
+# https://github.com/folke/dot/blob/5df77fa64728a333f4d58e35d3ca5d8590c4f928/config/lazygit/config.yml
+disableStartupPopups: true
+# https://github.com/nabekou29/dotfiles/blob/c0e463aceaa755f70ac002b51028d93ae8f31598/config/lazygit.yml#L6
+git:
+  branchLogCmd: "git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline {{branchName}} --"
+  paging:
+    colorArg: always
+    pager: diff-so-fancy
 gui:
+  showIcons: true
+  sidePanelWidth: 0.25
+  language: "en"
+  timeFormat: "2006-01-02T15:04:05Z07:00" # '02 Jan 06 15:04 MST' # https://pkg.go.dev/time#Time.Format
   nerdFontsVersion: "3"
   theme:
     activeBorderColor:
