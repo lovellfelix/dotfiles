@@ -1,17 +1,13 @@
 #!/bin/bash
 
 # Aliasses
-## Misc
+
+## General
+alias ..="cd .."
 alias c="clear"
 alias ll='ls -la --color'
 alias ls='ls --color'
-
-
-## Configs
-# alias dotconfig="cd ~/Desktop/Projects/random/dotfiles && nvim ."
-
-## Notes
-# alias notes="cd ~/Desktop/Notes && nvim ."
+alias h='history'
 
 ## Python
 alias python=python3
@@ -34,12 +30,29 @@ alias fluxf="kubectl get hr --all-namespaces | grep False | awk '{print $2, $1}'
 # .NET Core
 alias nuget="mono /usr/local/bin/nuget.exe"
 
+# vim
 # use nvim if available
 if [ -x "$(command -v nvim)" ]; then
-    alias vim='nvim'
+    alias vim="nvim"
+    alias v="nvim"
 fi
 
-# lazy docker 
-# https://github.com/jesseduffield/lazydocker
+## Configs
+# alias dotconfig="cd ~/.dotfiles && v ."
+
+## Notes
+# alias notes="cd ~/notes && v ."
+
 alias lzd="lazydocker"
 # Completion styling
+
+# Misc
+alias temps="curl wttr.in"
+alias whatsmyip="http ipinfo.io"
+alias help="tldr"
+alias week="date +%V"
+alias ip="curl icanhazip.com"
+# delete all .DS_Store files
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+alias du="ncdu -r -x --exclude .git --exclude node_modules"
+alias sudo="sudo -E"

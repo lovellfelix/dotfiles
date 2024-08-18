@@ -10,9 +10,6 @@ fi
 # Source Zinit 
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Source the .profile file
-source $ZDOTDIR/.profile
-
 # If on macOS, source the .profile-macos file
 if [ Darwin = `uname` ]; then
   source $ZDOTDIR/.profile-macos
@@ -22,6 +19,9 @@ fi
 if [ Linux = `uname` ]; then
   source $ZDOTDIR/.profile-linux
 fi
+
+# Source the .profile file for all OS
+source $ZDOTDIR/.profile
 
 # zinit plugins
 zinit light zsh-users/zsh-autosuggestions
@@ -37,6 +37,7 @@ zinit snippet OMZP::kubectl
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
+zinit snippet OMZP::direnv
 
 # Load completions
 autoload -Uz compinit && compinit
@@ -54,7 +55,7 @@ bindkey "^[[B" history-beginning-search-forward
 bindkey '^[w' kill-region
 
 # Completion styling
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'  # partial completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'  # Case-insensitive (all), partial-word, and then substring completion.
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
