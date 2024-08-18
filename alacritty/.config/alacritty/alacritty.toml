@@ -67,8 +67,8 @@ columns = 500
 lines = 80
 
 [window.padding]
-x = 4
-y = 4
+x = 6
+y = 6
 
 [scrolling]
 history = 10000
@@ -173,5 +173,22 @@ bindings = [
     { key = "U",  mods = "Command", command = { program = "/opt/homebrew/bin/tmux", args = ["run-shell", "~/.local/share/tmux/plugins/tpm/bin/update_plugins all"] } },
     # ⌘ + R reloads the tmux configuration
     { key = "R",  mods = "Command", command = { program = "/opt/homebrew/bin/tmux", args = ["source-file", "~/.config/tmux/tmux.conf"] } },
+    # ⌘ + Shift + E make all panes equal
+    { key = "E",  mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["select-layout", "even-horizontal"] } },
+
+    # Managing floax popups
+    ############################################
+    # ⌘ + Shift + F toggles the floating popup
+    { key = "F",  mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["resize-pane", "-Z"] } },
+    # ⌘ + Shift + P toggles the floating popup
+    { key = "P",  mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["-P"] } },
+
+    # Managing omerxx/tmux-sessionx sesssions 
+    ############################################
+    # ⌘ + Shift + o opens the session switcher alternative to prefix + o
+    { key = "O",  mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["run-shell", " switcher.sh"] } },
+
+
+
 
 ]
