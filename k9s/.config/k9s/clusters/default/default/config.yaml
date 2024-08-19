@@ -14,7 +14,7 @@ k9s:
     - monitoring
     - system-upgrade
   view:
-    active: xray deploy
+    active: deployments
   featureGates:
     nodeShell: true
   portForwardAddress: localhost
