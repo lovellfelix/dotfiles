@@ -16,6 +16,7 @@ blink_interval = 500
 blink_timeout = 5
 unfocused_hollow = false
 thickness = 0.15
+vi_mode_style = "Block"
 
 [cursor.style]
 blinking = "Always"
@@ -58,7 +59,7 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 save_to_clipboard = true
 
 [window]
-decorations = "full"
+decorations = "transparent"
 dynamic_title = true
 # startup_mode = "Maximized"
 
@@ -67,8 +68,8 @@ columns = 500
 lines = 80
 
 [window.padding]
-x = 6
-y = 6
+x = 12
+y = 30
 
 [scrolling]
 history = 10000
@@ -166,9 +167,6 @@ bindings = [
     { key = "Up", mods = "Command|Control", command = { program = "/opt/homebrew/bin/tmux", args = ["resize-pane", "-U"] } },
     # resize down a pane
     { key = "Down", mods = "Command|Control", command = { program = "/opt/homebrew/bin/tmux", args = ["resize-pane", "-D"] } },
-    # ⌘ + q prompts you to close the tab, "y" to confirm
-    { key = "Q",  mods = "Command", command = { program = "/opt/homebrew/bin/tmux", args = ["kill-window"] } },
-    { key = "Q",  mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["kill-session"] } },
     # ⌘ + U updates the tmux plugins
     { key = "U",  mods = "Command", command = { program = "/opt/homebrew/bin/tmux", args = ["run-shell", "~/.local/share/tmux/plugins/tpm/bin/update_plugins all"] } },
     # ⌘ + R reloads the tmux configuration
@@ -183,12 +181,8 @@ bindings = [
     # ⌘ + Shift + P toggles the floating popup
     { key = "P",  mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["-P"] } },
 
-    # Managing omerxx/tmux-sessionx sesssions 
+    # Managing tmux sessions
     ############################################
-    # ⌘ + Shift + o opens the session switcher alternative to prefix + o
-    { key = "O",  mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["run-shell", " switcher.sh"] } },
-
-
-
-
+    # ⌘ + Shift + N creates a new session. For context, the user is prompted to enter the session name.
+    { key = "N",  mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["new-session", "-s"] } },
 ]
