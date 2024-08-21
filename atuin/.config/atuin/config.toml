@@ -101,11 +101,11 @@
 history_filter = [
 #   "^secret-cmd",
 #   "^innocuous-cmd .*--secret=.+",
-  "^cd",
   "^ls",
   "^history",
   "^code",
   "^less",
+  "^export",
 ]
 
 ## prevent commands run with cwd matching any of these regexes from being written
