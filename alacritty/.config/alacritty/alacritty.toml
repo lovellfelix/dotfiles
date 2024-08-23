@@ -183,6 +183,6 @@ bindings = [
 
     # Managing tmux sessions
     ############################################
-    # ⌘ + Shift + N creates a new session. For context, the user is prompted to enter the session name.
-    { key = "N",  mods = "Command|Shift", command = { program = "/opt/homebrew/bin/tmux", args = ["new-session", "-s"] } },
+    # ⌘ + Shift + S lists all the sessions
+    { key = "S",  mods = "Command", command = { program = "/opt/homebrew/bin/tmux", args = ["choose-session"] } },
 ]
