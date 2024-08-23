@@ -4,10 +4,11 @@
 
 ## General
 alias ..="cd .."
-alias c="clear"
+alias cl="clear"
 alias ll='ls -la --color'
 alias ls='ls --color'
 alias h='history'
+alias sudo="sudo -E"
 
 ## Python
 alias python=python3
@@ -15,7 +16,7 @@ alias pip=pip3
 alias pyenv="python -m venv venv"
 alias pyactivate="source venv/bin/activate"
 
-# #kubectl long commands
+## kubectl long commands
 alias kdrain="kubectl drain --delete-emptydir-data --ignore-daemonsets --force"
 
 #flux
@@ -27,10 +28,7 @@ alias fluxl="flux logs --all-namespaces"
 alias fluxerr="flux logs --all-namespaces --level=error"
 alias fluxf="kubectl get hr --all-namespaces | grep False | awk '{print $2, $1}' | xargs bash -c 'flux suspend hr $0 -n $1'"
 
-# .NET Core
-alias nuget="mono /usr/local/bin/nuget.exe"
-
-# vim
+## Nvim
 # use nvim if available
 if [ -x "$(command -v nvim)" ]; then
     alias vim="nvim"
@@ -38,7 +36,7 @@ if [ -x "$(command -v nvim)" ]; then
 fi
 
 ## Configs
-# alias dotconfig="cd ~/.dotfiles && v ."
+alias dotfiles="$EDITOR $HOME/.dotfiles"
 
 ## Notes
 # alias notes="cd ~/notes && v ."
@@ -55,4 +53,17 @@ alias ip="curl icanhazip.com"
 # delete all .DS_Store files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 alias du="ncdu -r -x --exclude .git --exclude node_modules"
-alias sudo="sudo -E"
+alias lzd="lazydocker"
+
+## Notes
+# alias notes="cd ~/notes && v ."
+
+# .NET Core
+alias nuget="mono /usr/local/bin/nuget.exe"
+
+# SSH
+alias sshconfig="$EDITOR ~/.ssh/config"
+alias sshkeys="$EDITOR ~/.ssh/authorized_keys"
+alias ssh-dev="ssh $DEV_SERVER"
+alias ssh-jump="ssh $JUMP_SERVER"
+alias ssh-test="ssh $TEST_SERVER"
