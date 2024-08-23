@@ -72,3 +72,20 @@ if [ "$(command -v atuin)" ]; then
         suggestion=$(atuin search --cmd-only --limit 1 --search-mode prefix $1)
     }
 fi
+
+
+# setup sesh if it exists
+if [ "$(command -v sesh)" ]; then
+    function sesh-sessions() {
+        {
+            exec </dev/tty
+            exec <&1
+            local session
+            session=$(sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
+            [[ -z "$session" ]] && return
+            sesh connect $session
+        }
+    }
+    zle     -N             sesh-sessions
+    bindkey '^x' sesh-sessions
+fi
