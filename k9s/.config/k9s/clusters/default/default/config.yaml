@@ -11,8 +11,8 @@ k9s:
     - flux-system
     - kube-system
     - media
+    - networking
     - monitoring
-    - system-upgrade
   view:
     active: deployments
   featureGates:
