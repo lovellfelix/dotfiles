@@ -14,7 +14,7 @@ k9s:
     - networking
     - monitoring
   view:
-    active: deployments
+    active: deploy
   featureGates:
     nodeShell: true
   portForwardAddress: localhost
