@@ -33,6 +33,8 @@
 [status]
     short = true
 
+[includeIf "gitdir:~/.dotfiles/"]	
+  path = ~/.gitconfig.pers
 [includeIf "gitdir/i:~/projects/"]
   path = ~/.gitconfig.pers
 [includeIf "gitdir/i:~/workspace/"]	
