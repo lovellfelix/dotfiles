@@ -1,0 +1,39 @@
+[core]
+	excludesfile = /Users/lovellfelix/.gitignore_global
+	pager = diff-so-fancy | less -FR --tabs=4
+
+[init]
+	defaultBranch = main
+
+[alias]
+  a = add
+	b = branch
+	c = commit
+	ca = commit --amend
+	s = status
+	co = checkout
+	d = diff
+	m = merge
+	p = push
+	r = reset
+	t = tag
+	st = stash
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	l = log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium --oneline
+	lg = log --graph --stat --date=format:'%b %d, %Y' --pretty=format:'%C(yellow bold)%h%Creset%C(white)%d%Creset %s%n%C(blue)%aN <%ae> | %cd%n'
+  rsh = reset --soft HEAD^
+  wch = whatchanged -p --abbrev-commit --pretty=medium -10
+	empty = "git commit --allow-empty"
+  delete-local-merged = "!git fetch && git branch --merged | egrep -v 'master' | xargs git branch -d"
+
+[fetch]
+    prune = true
+
+[status]
+    short = true
+
+[includeIf "gitdir/i:~/projects/"]
+  path = ~/.gitconfig.pers
+[includeIf "gitdir/i:~/workspace/"]	
+  path = ~/.gitconfig.work
