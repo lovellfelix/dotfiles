@@ -5,7 +5,7 @@ return {
     vim.api.nvim_create_autocmd("OptionSet", {
       pattern = "background",
       callback = function()
-        vim.cmd("Catppuccin " .. (vim.v.option_new == "light" and "latte" or "mocha"))
+        vim.cmd("Catppuccin " .. (vim.v.option_new == "light" and "latte" or "macchiato"))
       end,
     })
   end,
