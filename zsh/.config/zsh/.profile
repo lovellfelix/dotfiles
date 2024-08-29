@@ -66,7 +66,7 @@ if [ "$(command -v atuin)" ]; then
     zle -N fzf-atuin-history-widget
     zle -N _atuin_search_widget _atuin_search
     bindkey '^r' fzf-atuin-history-widget
-    bindkey '^z' atuin-search
+    bindkey '^x' atuin-search
 
     _zsh_autosuggest_strategy_atuin_top() {
         suggestion=$(atuin search --cmd-only --limit 1 --search-mode prefix $1)
@@ -86,6 +86,12 @@ if [ "$(command -v sesh)" ]; then
             sesh connect $session
         }
     }
-    zle     -N             sesh-sessions
-    bindkey '^x' sesh-sessions
+
+    # Register the function with Zsh Line Editor (ZLE)
+    zle -N sesh-sessions
+
+    # Bind Ctrl+F to the sesh-sessions function in all relevant keymaps
+    bindkey -M emacs '^z' sesh-sessions
+    bindkey -M vicmd '^z' sesh-sessions
+    bindkey -M viins '^z' sesh-sessions
 fi

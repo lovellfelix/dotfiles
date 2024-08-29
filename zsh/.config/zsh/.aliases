@@ -38,12 +38,6 @@ fi
 ## Configs
 alias dotfiles="$EDITOR $HOME/.dotfiles"
 
-## Notes
-# alias notes="cd ~/notes && v ."
-
-alias lzd="lazydocker"
-# Completion styling
-
 # Misc
 alias temps="curl wttr.in"
 alias whatsmyip="http ipinfo.io"
