@@ -61,3 +61,19 @@ alias sshkeys="$EDITOR ~/.ssh/authorized_keys"
 alias ssh-dev="ssh $DEV_SERVER"
 alias ssh-jump="ssh $JUMP_SERVER"
 alias ssh-test="ssh $TEST_SERVER"
+
+# tar
+alias tarc='tar -zcvf file.tar.gz'
+alias tarx='tar -zxvf'
+
+# Tar & encrypt with pgp
+alias tarpgp='tar -czf - $1 | gpg -c > $2' # $1 is the file to tar, $2 is the output file
+alias untarpgp='gpg -d $1 | tar -xzf -' # $1 is the file to untar
+
+# tmuxinator
+alias tx='tmuxinator'
+alias txs='tmuxinator start'
+alias txo='tmuxinator open'
+alias txn='tmuxinator new'
+alias txl='tmuxinator list'
+alias txk='tmuxinator stop'
