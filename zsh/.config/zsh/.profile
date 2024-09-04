@@ -6,7 +6,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export KUBE_EDITOR=$EDITOR
 export K9S_CONFIG_DIR="$HOME/.config/k9s"
 
-
 # krew
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
@@ -26,18 +25,17 @@ export FZF_DEFAULT_OPTS=" \
 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
 --color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
---prompt '∷ ' --pointer '❯ ' --marker ' '"
+--prompt '∷ ' --pointer '❯' --marker ' '"
 
-# fzf tab completion 
-
+# fzf tab completion
 # tree command with fzf preview. Use `tree **` to list directories and files
 _fzf_comprun() {
   local command=$1
   shift
 
   case "$command" in
-    tree)         find . -type d | fzf --preview 'tree -C {}' "$@";;
-    *)            fzf "$@" ;;
+  tree) find . -type d | fzf --preview 'tree -C {}' "$@" ;;
+  *) fzf "$@" ;;
   esac
 }
 
@@ -49,42 +47,42 @@ if [ "$(command -v bat)" ]; then
 fi
 
 if [ "$(command -v atuin)" ]; then
-    eval "$(atuin init zsh --disable-up-arrow)"
+  eval "$(atuin init zsh --disable-up-arrow)"
 
-    export ATUIN_NOBIND="true"
+  export ATUIN_NOBIND="true"
 
-    fzf-atuin-history-widget() {
-        local atuin_opts="--cmd-only"
-        local fzf_opts=(
-            --height=${FZF_TMUX_HEIGHT:-80%}
-            --tac
-            "-n2..,.."
-            --tiebreak=index
-            "--query=${LBUFFER}"
-            "+m"
-            "--bind=ctrl-d:reload(atuin search $atuin_opts -c $PWD),ctrl-r:reload(atuin search $atuin_opts)"
-        )
+  fzf-atuin-history-widget() {
+    local atuin_opts="--cmd-only"
+    local fzf_opts=(
+      --height=${FZF_TMUX_HEIGHT:-80%}
+      --tac
+      "-n2..,.."
+      --tiebreak=index
+      "--query=${LBUFFER}"
+      "+m"
+      "--bind=ctrl-d:reload(atuin search $atuin_opts -c $PWD),ctrl-r:reload(atuin search $atuin_opts)"
+    )
 
-        selected=$(
-        eval "atuin search ${atuin_opts}" |
-            fzf "${fzf_opts[@]}"
-        )
-        local ret=$?
-        if [ -n "$selected" ]; then
-            # the += lets it insert at current pos instead of replacing
-            LBUFFER+="${selected}"
-        fi
-        zle reset-prompt
-        return $ret
-    }
-    zle -N fzf-atuin-history-widget
-    zle -N _atuin_search_widget _atuin_search
-    bindkey '^r' fzf-atuin-history-widget
-    bindkey '^x' atuin-search
+    selected=$(
+      eval "atuin search ${atuin_opts}" |
+        fzf "${fzf_opts[@]}"
+    )
+    local ret=$?
+    if [ -n "$selected" ]; then
+      # the += lets it insert at current pos instead of replacing
+      LBUFFER+="${selected}"
+    fi
+    zle reset-prompt
+    return $ret
+  }
+  zle -N fzf-atuin-history-widget
+  zle -N _atuin_search_widget _atuin_search
+  bindkey '^r' fzf-atuin-history-widget
+  bindkey '^x' atuin-search
 
-    _zsh_autosuggest_strategy_atuin_top() {
-        suggestion=$(atuin search --cmd-only --limit 1 --search-mode prefix $1)
-    }
+  _zsh_autosuggest_strategy_atuin_top() {
+    suggestion=$(atuin search --cmd-only --limit 1 --search-mode prefix $1)
+  }
 fi
 
 
