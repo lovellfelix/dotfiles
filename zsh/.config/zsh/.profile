@@ -88,24 +88,23 @@ if [ "$(command -v atuin)" ]; then
 fi
 
 
-# setup sesh if it exists
-if [ "$(command -v sesh)" ]; then
-    function sesh-sessions() {
-        {
-            exec </dev/tty
-            exec <&1
-            local session
-            session=$(sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
-            [[ -z "$session" ]] && return
-            sesh connect $session
-        }
+# setup tmuxinator if it exists
+if [ "$(command -v tmuxinator)" ]; then
+  function tmuxinator_fzf() {
+    {
+      exec </dev/tty
+      exec <&1
+      local session
+      session=$(tmuxinator list -n | tail -n +2 | fzf --height 40% --reverse --border-label 'Select a tmuxinator project: ' --border --prompt '∷ ')
+      [[ -z "$session" ]] && return
+      tmuxinator start $session
     }
+  }
 
-    # Register the function with Zsh Line Editor (ZLE)
-    zle -N sesh-sessions
+  zle -N tmuxinator_fzf
 
-    # Bind Ctrl+F to the sesh-sessions function in all relevant keymaps
-    bindkey -M emacs '^z' sesh-sessions
-    bindkey -M vicmd '^z' sesh-sessions
-    bindkey -M viins '^z' sesh-sessions
+  # Bind Ctrl+Z to the tmuxinator_fzf function in all relevant keymaps
+  bindkey -M emacs '^Z' tmuxinator_fzf
+  bindkey -M vicmd '^Z' tmuxinator_fzf
+  bindkey -M viins '^Z' tmuxinator_fzf
 fi
