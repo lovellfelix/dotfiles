@@ -28,7 +28,9 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light Aloxaf/fzf-tab
-zinit light issenn/fast-syntax-highlighting
+# evalcache and zsh-defer plugins are used to improve the performance of the shell.
+zinit light mroth/evalcache
+zinit light romkatv/zsh-defer
 
 # zinit snippets
 zinit snippet OMZP::ansible
@@ -75,7 +77,7 @@ if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   if [ ! -d "$XDG_CONFIG_HOME/ohmyposh" ] && [ -d "$DOTFILESDIR/ohmyposh/.config/ohmyposh" ]; then
     ln -s "$DOTFILESDIR/ohmyposh/.config/ohmyposh" "$XDG_CONFIG_HOME/ohmyposh"
   fi
-  eval "$(oh-my-posh init zsh --config "$XDG_CONFIG_HOME/ohmyposh/zen.toml")"
+  zsh-defer eval "$(oh-my-posh init zsh --config "$XDG_CONFIG_HOME/ohmyposh/zen.toml")"
 fi
 
 # Tmux plugin manager
