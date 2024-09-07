@@ -26,17 +26,16 @@ alias fluxf="flux resume hr"
 alias fluxg="flux get hr --all-namespaces"
 alias fluxl="flux logs --all-namespaces"
 alias fluxerr="flux logs --all-namespaces --level=error"
-alias fluxf="kubectl get hr --all-namespaces | grep False | awk '{print $2, $1}' | xargs bash -c 'flux suspend hr $0 -n $1'"
 
 ## Nvim
 # use nvim if available
 if [ -x "$(command -v nvim)" ]; then
-    alias vim="nvim"
-    alias v="nvim"
+  alias vim="nvim"
+  alias v="nvim"
 fi
 
 ## Configs
-alias dotfiles="$EDITOR $HOME/.dotfiles"
+alias dotfiles='$EDITOR $HOME/.dotfiles'
 
 # Misc
 alias temps="curl wttr.in"
@@ -49,6 +48,10 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 alias du="ncdu -r -x --exclude .git --exclude node_modules"
 alias lzd="lazydocker"
 
+alias vpn='$HOME/.dotfiles/hacks/vpnConnection.sh'
+# mysql
+alias m='mysql -uroot -p -h $MYSQL_HOST'
+
 ## Notes
 # alias notes="cd ~/notes && v ."
 
@@ -56,24 +59,26 @@ alias lzd="lazydocker"
 alias nuget="mono /usr/local/bin/nuget.exe"
 
 # SSH
-alias sshconfig="$EDITOR ~/.ssh/config"
-alias sshkeys="$EDITOR ~/.ssh/authorized_keys"
-alias ssh-dev="ssh $DEV_SERVER"
-alias ssh-jump="ssh $JUMP_SERVER"
-alias ssh-test="ssh $TEST_SERVER"
+alias sshconfig='$EDITOR ~/.ssh/config'
+alias sshkeys='$EDITOR ~/.ssh/authorized_keys'
+alias ssh-dev='ssh $DEV_SERVER'
+alias ssh-jump='ssh $JUMP_SERVER'
+alias ssh-test='ssh $TEST_SERVER'
 
 # tar
 alias tarc='tar -zcvf file.tar.gz'
 alias tarx='tar -zxvf'
 
-# Tar & encrypt with pgp
-alias tarpgp='tar -czf - $1 | gpg -c > $2' # $1 is the file to tar, $2 is the output file
-alias untarpgp='gpg -d $1 | tar -xzf -' # $1 is the file to untar
-
 # tmuxinator
+alias mux='tmuxinator start'
+alias mux-stop='tmuxinator stop $(tmux display-message -p "#S")'
+alias mux-list='tmuxinator list'
+alias mux-edit='tmuxinator open'
+alias mux-debug='tmuxinator debug'
+alias mux-kill='tmux kill-session -t $(tmux display-message -p "#S")'
 alias tx='tmuxinator'
 alias txs='tmuxinator start'
 alias txo='tmuxinator open'
 alias txn='tmuxinator new'
 alias txl='tmuxinator list'
-alias txk='tmuxinator stop'
+alias txk='tmuxinator stop $(tmux display-message -p "#S")'
