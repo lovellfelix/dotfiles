@@ -54,7 +54,7 @@ if [ "$(command -v atuin)" ]; then
   fzf-atuin-history-widget() {
     local atuin_opts="--cmd-only"
     local fzf_opts=(
-      --height=${FZF_TMUX_HEIGHT:-80%}
+      "--height=${FZF_TMUX_HEIGHT:-80%}"
       --tac
       "-n2..,.."
       --tiebreak=index
@@ -79,12 +79,12 @@ if [ "$(command -v atuin)" ]; then
   zle -N _atuin_search_widget _atuin_search
   bindkey '^r' fzf-atuin-history-widget
   bindkey '^x' atuin-search
-
+  bindkey '^ ' autosuggest-accept
   _zsh_autosuggest_strategy_atuin_top() {
     suggestion=$(atuin search --cmd-only --limit 1 --search-mode prefix $1)
   }
+  ZSH_AUTOSUGGEST_STRATEGY=(atuin_top history completion)
 fi
-
 
 # setup tmuxinator if it exists
 if [ "$(command -v tmuxinator)" ]; then
