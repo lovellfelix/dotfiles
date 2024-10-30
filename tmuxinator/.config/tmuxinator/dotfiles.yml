@@ -1,0 +1,8 @@
+name: dotfiles
+root: ~/.dotfiles
+
+windows:
+  - editor: nvim -c ':Telescope find_files'
+  - git: lazygit
+  - shell:
+

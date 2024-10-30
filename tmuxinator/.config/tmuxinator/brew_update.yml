@@ -1,0 +1,7 @@
+# /Users/lovellfelix/.config/tmuxinator/update.yml
+
+name: update
+root: ~/
+
+windows:
+  - update: brew update && brew upgrade && brew cleanup

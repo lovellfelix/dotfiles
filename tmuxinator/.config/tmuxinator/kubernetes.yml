@@ -1,0 +1,14 @@
+# /Users/lovellfelix/.config/tmuxinator/kubernetes.yml
+
+name: kubernetes
+root: ~/projects/gitops-homelab/
+
+windows:
+  - k9s: k9s
+  - editor: nvim -c ':Telescope find_files'
+  - git: lazygit
+  - shell:
+      layout: main-vertical
+      panes:
+        -  #empty
+        -  #empty

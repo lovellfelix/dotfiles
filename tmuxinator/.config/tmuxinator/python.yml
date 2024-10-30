@@ -1,0 +1,13 @@
+name: python
+root: ~/projects/<%= @settings["workspace"] %>
+
+pre_window: source venv/bin/activate
+
+windows:
+  - editor: vim -c ':Telescope find_files'
+  - server: 
+      layout: 68ff,156x40,0,0{102x40,0,0,344,53x40,103,0,347}
+      panes:
+        - #shell
+        - #shell
+  - rest-client: atac
