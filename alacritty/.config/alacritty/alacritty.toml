@@ -1,8 +1,8 @@
-import = [
+general.import = [
   "~/.config/alacritty/catppuccin-macchiato.toml"
 ]
 
-live_config_reload = true
+general.live_config_reload = true
 
 [bell]
 animation = "EaseOutExpo"
@@ -75,7 +75,7 @@ y = 30
 history = 10000
 multiplier = 3
 
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 args = ["-l", "-c", "/opt/homebrew/bin/tmux new-session -A -s alacritty-main"]
 
