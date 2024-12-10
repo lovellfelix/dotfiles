@@ -2,3 +2,8 @@
 if [[ -f "$HOME/.fzf.zsh" ]] then
   source "$HOME/.fzf.zsh"
 fi
+
+# If zoxide command is found in the path, load it.
+if [[ -f "$(command -v zoxide)" ]] then
+  eval "$(zoxide init --cmd cd zsh)"
+fi
